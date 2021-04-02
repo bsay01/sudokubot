@@ -14,7 +14,6 @@ class sudokubot(Frame):
     def create_widgets(self):
         # create primary buttons and labels (not related to sudoku)
         topLabel = Label(self.master, text="add sudoku data - only numbers 1-9 will be recognized", fg="black", bg="yellow")
-        bottomLabel = Label(self.master, text="", fg="black", bg="yellow")
         solveButton = Button(self.master, text="Solve", fg="white", bg="red", command = self.get_entries)
 
         # pack primary buttons and labels (not related to sudoku)
