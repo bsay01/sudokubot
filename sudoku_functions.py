@@ -20,20 +20,21 @@ def solve(array): # this is where the sudoku gets solved
     print_entries_array_to_console(solving)
 
     #create arrays for probability storage
-    probability_array_row = [space_probabilities() for i in range(9)]
-    probability_array_board = [probability_array_row for i in range(9)]
+    probability_array_space = [space_probabilities() for i in range(9)] # nine possible numbers
+    probability_array_row = [probability_array_space for i in range(9)] # nine rows
+    probability_array_board = [probability_array_row for i in range(9)] # nine columns
 
     """
     probability_array_board
-    index 0   |  9 space probabilities (one probability_array_row)
-    index 1   |  9 space probabilities (one probability_array_row)
-    index 2   |  9 space probabilities (one probability_array_row)
-    index 3   |  9 space probabilities (one probability_array_row)
-    index 4   |  9 space probabilities (one probability_array_row)
-    index 5   |  9 space probabilities (one probability_array_row)
-    index 6   |  9 space probabilities (one probability_array_row)
-    index 7   |  9 space probabilities (one probability_array_row)
-    index 8   |  9 space probabilities (one probability_array_row)
+    index 0   |  array of 9 times 9 space probabilities (one probability_array_row)
+    index 1   |  array of 9 times 9 space probabilities (one probability_array_row)
+    index 2   |  array of 9 times 9 space probabilities (one probability_array_row)
+    index 3   |  array of 9 times 9 space probabilities (one probability_array_row)
+    index 4   |  array of 9 times 9 space probabilities (one probability_array_row)
+    index 5   |  array of 9 times 9 space probabilities (one probability_array_row)
+    index 6   |  array of 9 times 9 space probabilities (one probability_array_row)
+    index 7   |  array of 9 times 9 space probabilities (one probability_array_row)
+    index 8   |  array of 9 times 9 space probabilities (one probability_array_row)
     """
 
     #store current numbers, spaces are considered all true here
@@ -57,6 +58,7 @@ def solve(array): # this is where the sudoku gets solved
                 numbers.append(i)
         return numbers
 
+    # read probability array
     
 
 class space_probabilities():
