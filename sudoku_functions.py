@@ -1,4 +1,5 @@
 import numpy as np
+import sys
 
 def print_entries_array_to_console(array):
     a = 0
@@ -58,7 +59,65 @@ def solve(array): # this is where the sudoku gets solved
                 numbers.append(i)
         return numbers
 
-    # read probability array
+    # print probability array
+    def print_probability_array(probability_array):
+        print("| ", end='')
+        a = 0
+        b = 0
+        while a < 9:
+            while b < 9:
+                #read space_probabilities into a string ex. "STFFTTTFFT", s for start string
+                if probability_array_space[a][b].one == True:
+                    print("1:T ", end='')
+                else:
+                    print("1:F ", end = '')
+
+                if probability_array_space[a][b].two == True:
+                    print("2:T ", end = '')
+                else:
+                    print("2:F ", end = '')
+                
+                if probability_array_space[a][b].three == True:
+                    print("3:T ", end = '')
+                else:
+                    print("3:F ", end = '')
+
+                if probability_array_space[a][b].four == True:
+                    print("4:T ", end = '')
+                else:
+                    print("4:F ", end = "")
+
+                if probability_array_space[a][b].five == True:
+                    print("5:T ", end = "")
+                else:
+                    print("5:F ", end = "")
+                
+                if probability_array_space[a][b].six == True:
+                    print("6:T ", end = "")
+                else:
+                    print("6:F ", end = "")
+
+                if probability_array_space[a][b].seven == True:
+                    print("7:T ", end = "")
+                else:
+                    print("7:F ", end = "")
+
+                if probability_array_space[a][b].eight == True:
+                    print("8:T ", end = "")
+                else:
+                    print("8:F ", end = "")
+                
+                if probability_array_space[a][b].nine == True:
+                    print("9:T ", end = "")
+                else:
+                    print("9:F ", end = "")
+
+                b += 1
+            print("|")
+            a += 1
+            b = 0
+        print()
+
     
 
 class space_probabilities():
