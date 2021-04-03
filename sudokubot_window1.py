@@ -39,10 +39,10 @@ class sudokubot(Frame):
                     self.entries[row, column] = 0
         #su.print_entries_array_to_console(self.entries)
         #self.user_check_input() # probably disable this honestly
-        try:
-            su.solve(self.entries)
-        except: 
-            print("sudokubot.solve(self.entries) couldn't complete. Check entries.")
+        #try:
+        su.solve(self.entries)
+        #except: 
+            #print("sudokubot.solve(self.entries) couldn't complete. Check entries.")
 
     def user_check_input(self):
         # have user check their entries.

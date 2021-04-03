@@ -20,7 +20,15 @@ expected, will hopefully solve the given sudoku.
 So far this contains two methods, one to print the data array containing all of the sudoku values and a solve method,
 which will probably call more future functions contained in this file.
 
+## space_probability_class.py
+So far this contains a class used in sudoku_functions.py that contains the list of possible values for that space and a couple methods to use that list.
+
 # Future
+
+Next work:
+    - Read beginning sudoku board into probabilities (values that are already there should have all of their probabilities 0 except the actual number)
+    - ^ Currently sets all to true always. control flow works, list gets set to true without running clear to true function
+
 Solve method in sudoku_functions.py needs to be completed, and there needs to be a way to display the final product in the tkinter window.
 Preferably the same window, because I want the user to be able to see the solution and entering a new sudoku to be 
 solved at the same time. Maybe add a second sudoku graph to the right of the input graph to display the solution?

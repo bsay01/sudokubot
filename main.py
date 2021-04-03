@@ -1,4 +1,4 @@
-from sudokubot_window1 import * #one of my files
+from sudokubot_window1 import * # one of my files
 
 root = Tk() # setting tkinter window
 root.title('sudokubot')
