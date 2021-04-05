@@ -14,27 +14,35 @@ def print_entries_array_to_console(array): #works
         b = 0
     print()
 
+#function to return list of values in the same box as a given index of a sudoku-sized array
+
+
+#function to return list of values in the same row as a given index of a sudoku-sized array
+
+
+#function to return list of values in the same col as a given index of a sudoku-sized array
+
+
 def solve(array): # this is where the sudoku gets solved
     print("starting solve")
 
     #initialize array which will eventually contain solution with user entries
     solving = array
+    print("current board as array of integers:")
     print_entries_array_to_console(solving)
 
     #create arrays for probability storage
-    probability_array_row = [spc.space_probabilities() for i in range(9)] # nine spaces per row
-    probability_array_board = [probability_array_row for i in range(9)] # nine rows
+    probability_array_board = [[spc.space_probabilities() for i in range(9)] for j in range(9)] # nine spaces per row
 
     # print probability array, uses get_probability_string
     def print_probability_array_board(pab):
         for a in range(9):
             for b in range(9):
-                print("| ", end='') 
-                print(pab[a][b].data, end=' ')
-            print("|")
+                print("[", end = '')
+                print(pab[a][b].get_probability_string(), end = '')
+                print("] ", end = '')
+            print()
         print()
-
-    print_probability_array_board(probability_array_board)
 
     """
     probability_array_board
@@ -45,29 +53,37 @@ def solve(array): # this is where the sudoku gets solved
     etc...
     """
 
-    #SOMEHOW THIS IS MAKING ALL CELLS TRUE FOR ALL POSSIBILITIES
+    print("Probability array after creation:")
+    print_probability_array_board(probability_array_board)
 
-    #store current numbers, spaces are considered all true here
+    #store current numbers in probability array, spaces are considered all true here
+    
+    #create list of tuples (value, row, column) for values != 0 in solving
+    values = []
     for i in range(9):
         for j in range(9):
-            if solving[i][j] == 0:
-                probability_array_board[i][j].clear_possibilities_to_true()
-            elif solving[i][j] == 1:
-                #must be 1, all other values false (ie. 0100000000)
-                probability_array_board[i][j].clear_possibilities_to_false()
-                probability_array_board[i][j].data[1] = 1
-            elif solving[i][j] == 2:
-                #must be 2, all other values false (ie. 0010000000)
-                probability_array_board[i][j].clear_possibilities_to_false()
-                probability_array_board[i][j].data[2] = 1
-            elif solving[i][j] == 3:
-                #must be 3, all other values false (ie. 0001000000)
-                probability_array_board[i][j].clear_possibilities_to_false()
-                probability_array_board[i][j].data[3] = 1
+            if solving[i][j] != 0:
+                values.append( (solving[i][j], i, j) )
+
+    print("nonzero values and indeces in current sudoku: ")
+    print(values)
+    print()
+
+    #run through list of tuples, changing probability array for every index of values
+    for nonzero in values:
+        print("tuple being stored:", end = ' ')
+        print(nonzero)
+        probability_array_board[nonzero[1]][nonzero[2]].clear_possibilities_to_false()
+        probability_array_board[nonzero[1]][nonzero[2]].data[nonzero[0]] = 1
+        print_probability_array_board(probability_array_board)
 
     # probabilities should be stored in a list of lists of classes
     # current board is in array called "solving"
     
     # test print function
+    print("probability array after storing given values: ")
     print_probability_array_board(probability_array_board)
-    
+
+    """ time to update probability array for empty spaces based on the given values around them """
+    #functions to this end (detecting values in the same row, column, and box)
+
