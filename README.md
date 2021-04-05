@@ -13,8 +13,7 @@ an instance of the sudokubot class from sudokubot_window1.py. Afterwards, it run
 
 ## sudokubot_window1.py
 This is only called window "1" because I anticipate having to use more windows at some point and i'm not good enough 
-at tkinter yet to know how to do that. The get_entries method calls the solve method from sudoku_functions.py, which as 
-expected, will hopefully solve the given sudoku.
+at tkinter yet to know how to do that. The get_entries method calls the solve method from sudoku_functions.py, which will hopefully solve the given sudoku.
 
 ## sudoku_functions.py
 So far this contains a few methods: 
