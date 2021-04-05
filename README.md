@@ -17,8 +17,11 @@ at tkinter yet to know how to do that. The get_entries method calls the solve me
 expected, will hopefully solve the given sudoku.
 
 ## sudoku_functions.py
-So far this contains two methods, one to print the data array containing all of the sudoku values and a solve method,
-which will probably call more future functions contained in this file.
+So far this contains a few methods: 
+ - print the data array containing all of the sudoku values
+ - return list of values in the same box as a given index of a sudoku-sized array (in progress)
+ - return list of values in the same row as a given index of a sudoku-sized array (in progress)
+ - return list of values in the same col as a given index of a sudoku-sized array (in progress)
 
 ## space_probability_class.py
 So far this contains a class used in sudoku_functions.py that contains the list of possible values for that space and a couple methods to use that list.
@@ -26,15 +29,18 @@ So far this contains a class used in sudoku_functions.py that contains the list 
 # Future
 
 Next work:
-    - Read beginning sudoku board into probabilities (values that are already there should have all of their probabilities 0 except the actual number)
-    - ^ Currently sets all to true always. control flow works, list gets set to true without running clear to true function
+ - finish functions specified above in the sudoku_functions.py section
+ - continue solve method, first using those functions to update the probabilities of all empty spaces of the sudoku
+ - make a shell script to run the program, so that the app can be run with ./<shell script> rather than an entire python command
 
 Solve method in sudoku_functions.py needs to be completed, and there needs to be a way to display the final product in the tkinter window.
 Preferably the same window, because I want the user to be able to see the solution and entering a new sudoku to be 
-solved at the same time. Maybe add a second sudoku graph to the right of the input graph to display the solution?
+solved at the same time. Maybe add a second sudoku graph to the right of the input graph to display the solution.
 
-Avoid having seperate arrays in solve method for speed's sake. Python is already slow.
+Try to have as few arrays as possible to update in solve method for speed's sake. Python is already slow.
 
 Make sure that the display of the solution is actively updating as the program is working. 
-Might require a new method in sudokubot_window1, but I don't know. 
+Might require a new "update window with values" method in sudokubot_window1, but I don't know. 
 Showing live solution is more important for this project than speed, but I still want to make it as fast as possible.
+
+At the end of the project, make sure to update all import statements to only include methods that we use.
