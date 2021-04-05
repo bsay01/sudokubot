@@ -74,7 +74,7 @@ def solve(array): # this is where the sudoku gets solved
         print("tuple being stored:", end = ' ')
         print(nonzero)
         probability_array_board[nonzero[1]][nonzero[2]].clear_possibilities_to_false()
-        probability_array_board[nonzero[1]][nonzero[2]].data[nonzero[0]] = 1
+        probability_array_board[nonzero[1]][nonzero[2]].confirm_possibility( nonzero[0] )
         print_probability_array_board(probability_array_board)
 
     # probabilities should be stored in a list of lists of classes
